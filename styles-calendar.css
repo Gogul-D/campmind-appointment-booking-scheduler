@@ -37,6 +37,9 @@
     border-radius: 4px;
     cursor: pointer;
     color: var(--text-gray);
+     font-size: 18px;
+    /* this line is changed */
+    font-weight: bold;
 }
 
 .current-date-display {
