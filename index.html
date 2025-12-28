@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPMINDS | Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!--HEADER-->
+    <header class="header">
+        <div class="brand">
+            <img src="icons/Capminds logo.png" alt="Capminds Logo" class="brand-logo-img">
+        </div>
+
+        <button class="primary-btn" onclick="openModal()">
+            <img src="icons/book-appointment.svg" class="icon-img" style="filter: brightness(0) invert(1);">
+            Book Appointment
+        </button>
+
+        <div></div>
+    </header>
+
+    <!--LAYOUT-->
+    <div class="layout">
+
+        <!--SIDEBAR-->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="nav-toggle" onclick="toggleSidebar()">
+                <img src="icons/navbar-collapse-arrow-left.png" id="toggleIcon" class="icon-img">
+            </div>
+
+            <a href="index.html" class="nav-item active">
+                <img src="icons/select-date.png" class="icon-img">
+                <span class="nav-text">Calendar</span>
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <img src="icons/dashboard-inactive.png" class="icon-img">
+                <span class="nav-text">Dashboard</span>
+            </a>
+
+        </aside>
+
+        <!--MAIN_CONTENT-->
+        <main class="content">
+
+            <div class="calendar-container">
+
+                <!--Calendar Header and Controls-->
+                <div class="calendar-header">
+                    <div class="calendar-controls">
+
+                        <button class="control-btn" id="prevMonthBtn">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </button>
+
+                        <div class="current-date-display" id="currentMonthDisplay">
+                            <img src="icons/appointment-date-filter.svg" class="icon-img" style="margin-right:8px">
+                            January 2023
+                        </div>
+
+                        <button class="control-btn" id="nextMonthBtn">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </button>
+
+                        <button class="control-btn" id="todayBtn"
+                            style="width:auto; padding:0 12px; font-size:13px;">
+                            Today
+                        </button>
+
+                        <!-- Month_Dropdown -->
+                        <div class="search-input-group" style="position:relative;">
+                            <select id="monthSelect" class="control-btn"
+                                style="width:110px; padding:0 28px 0 12px; font-size:13px; appearance:none; cursor:pointer; background:white;">
+                                <option value="0">January</option>
+                                <option value="1">February</option>
+                                <option value="2">March</option>
+                                <option value="3">April</option>
+                                <option value="4">May</option>
+                                <option value="5">June</option>
+                                <option value="6">July</option>
+                                <option value="7">August</option>
+                                <option value="8">September</option>
+                                <option value="9">October</option>
+                                <option value="10">November</option>
+                                <option value="11">December</option>
+                            </select>
+
+                            <i class="ri-arrow-down-s-line"
+                               style="position:absolute; right:10px; top:50%; transform:translateY(-50%); pointer-events:none; color:#64748b;">
+                            </i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Doctor-Name-->
+                <div class="doctor-name-header">
+                    James Marry
+                </div>
+
+                <!--Calendar-Grid-->
+                <div class="calendar-grid-wrapper">
+
+                    <!-- Days-Header -->
+                    <div class="calendar-days-header">
+                        <div class="day-header">Sunday</div>
+                        <div class="day-header">Monday</div>
+                        <div class="day-header">Tuesday</div>
+                        <div class="day-header">Wednesday</div>
+                        <div class="day-header">Thursday</div>
+                        <div class="day-header active">Friday</div>
+                        <div class="day-header">Saturday</div>
+                    </div>
+
+                    <!-- Calendar Body -->
+                    <div class="calendar-body" id="calendarGrid">
+                        <!-- JS renders dates and events here -->
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-container">
+
+            <div class="modal-header">
+                <div class="modal-title">Schedule Appointment</div>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-grid">
+
+                    <input type="hidden" id="appointmentId">
+
+                    <div class="input-with-icon">
+                        <img src="icons/patients.png" class="icon-img">
+                        <select id="patientSelect" class="field-icon-input">
+                            <option value="">Patient Name</option>
+                            <option value="Henry James">Henry James</option>
+                            <option value="Sarah Connor">Sarah Connor</option>
+                        </select>
+                    </div>
+
+                    <div class="input-with-icon">
+                        <img src="icons/doctor.png" class="icon-img">
+                        <select id="doctorSelect" class="field-icon-input">
+                            <option value="">Doctor Name</option>
+                            <option value="James Marry">James Marry</option>
+                            <option value="Dr. Smith">Dr. Smith</option>
+                            <option value="Dr. Shame">Dr. Shame</option>
+                            <option value="Dr. Ram">Dr. Ram</option>
+                        </select>
+                    </div>
+
+                    <div class="input-with-icon">
+                        <img src="icons/hospital-name.png" class="icon-img">
+                        <select id="hospitalSelect" class="field-icon-input">
+                            <option value="">Hospital Name</option>
+                            <option value="Salus Center">Salus Center</option>
+                            <option value="Ultra care">Ultra care</option>
+                            <option value="Sun_health">Sun_health</option>
+                            <option value="apollo_care">apollo_care</option>
+                        </select>
+                    </div>
+
+                    <div class="input-with-icon">
+                        <img src="icons/specialist.png" class="icon-img">
+                        <select id="specialtySelect" class="field-icon-input">
+                            <option value="">Specialty</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Cardiology">Cardiology</option>
+                        </select>
+                    </div>
+
+                    <div class="input-with-icon">
+                        <img src="icons/select-date.png" class="icon-img">
+                        <input id="dateInput" type="text" class="field-icon-input"
+                               placeholder="Select Date"
+                               onfocus="this.type='date'">
+                    </div>
+
+                    <div class="input-with-icon">
+                        <img src="icons/select-time.png" class="icon-img">
+                        <input id="timeInput" type="text" class="field-icon-input"
+                               placeholder="Select Time"
+                               onfocus="this.type='time'">
+                    </div>
+
+                    <textarea id="reasonInput" class="full-width" placeholder="Reason"></textarea>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="ghost-btn btn-sm" onclick="closeModal()">Cancel</button>
+                <button class="primary-btn btn-sm" onclick="saveAppointment()">Save</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

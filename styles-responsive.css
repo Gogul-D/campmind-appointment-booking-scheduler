@@ -1,0 +1,139 @@
+/* RESPONSIVE STYLES */
+
+/* TABLET (Max-width: 1024px) */
+@media (max-width: 1024px) {
+
+    /* Header adjustments */
+    .header {
+        padding: 0 16px;
+    }
+}
+
+/* MOBILE (Max-width: 768px) */
+@media (max-width: 768px) {
+
+    /* LAYOUT & SIDEBAR */
+    .layout {
+        position: relative;
+        /* Ensure overlapping works */
+    }
+
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        height: 100%;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(0);
+       
+    }
+
+    /* HEADER */
+    .header {
+        padding: 0 12px;
+        height: auto;
+        min-height: 56px;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: 8px;
+        justify-content: center;
+        /* Center items on very small screens if needed */
+    }
+
+    .brand {
+        margin-right: auto;
+        /* Push brand to left */
+    }
+
+    .header>button.primary-btn {
+        font-size: 0;
+        /* Hide text "Book Appointment" */
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header>button.primary-btn img {
+        margin: 0;
+    }
+
+    /* CONTENT */
+    .content {
+        padding: 12px;
+    }
+
+    /* MODAL */
+    .modal-container {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        /* Stack inputs */
+    }
+
+    /* CALENDAR RESPONSIVE */
+    .calendar-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .calendar-controls {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .calendar-controls>* {
+        margin-bottom: 4px;
+        /* Add some spacing if wrapping occurs */
+    }
+
+    .current-date-display {
+        order: -1;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+
+    .day-header {
+        font-size: 9px;
+        padding: 8px 2px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    /* DASHBOARD RESPONSIVE */
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input-group input {
+        width: 100%;
+        /* Full width search */
+    }
+
+    .date-range-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .date-range-group input,
+    .date-range-group button {
+        width: 100%;
+    }
+}

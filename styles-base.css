@@ -1,0 +1,46 @@
+:root {
+    --bg: #f1f5f9;
+    --white: #ffffff;
+    --primary: #1976d2;
+    /* Blue */
+    --primary-hover: #1565c0;
+    --secondary: #e53935;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --border: #e2e8f0;
+    --table-header-bg: #f8fafc;
+    --sidebar-bg: #ffffff;
+    --sidebar-active-bg: #eff6ff;
+    --sidebar-active-text: #1976d2;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --radius: 6px;
+    --font-heading: 'Open Sans', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-dark);
+    font-size: 14px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+
+/* Icon Images Global */
+.icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}

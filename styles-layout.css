@@ -1,0 +1,148 @@
+/* HEADER */
+.header {
+    height: 56px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: -0.5px;
+}
+
+.brand-logo-img {
+    height: 32px;
+    width: auto;
+}
+
+/* LAYOUT */
+.layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 200px;
+    /* Expanded by default */
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    gap: 8px;
+    /* Slightly tighter */
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar .icon-img {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    /* Restore margin matching previous font setup */
+}
+
+.sidebar.collapsed .icon-img {
+    margin-right: 0;
+}
+
+.nav-toggle {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Align right when expanded */
+    padding-right: 16px;
+    cursor: pointer;
+    color: var(--text-gray);
+    font-size: 18px;
+    /* For font icons if any remain */
+    margin-bottom: 8px;
+}
+
+.sidebar.collapsed .nav-toggle {
+    justify-content: center;
+    padding-right: 0;
+}
+
+.nav-item {
+    width: calc(100% - 24px);
+    /* Full width with padding */
+    margin: 0 12px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Left align text */
+    padding: 0 12px;
+    border-radius: 6px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 14px;
+    /* Smaller font for menu items */
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 0;
+}
+
+/* Deprecated font icon styles in nav-item but keeping for safety */
+.nav-item i {
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.sidebar.collapsed .nav-item i {
+    margin-right: 0;
+}
+
+.nav-text {
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.sidebar.collapsed .nav-text {
+    display: none;
+    opacity: 0;
+}
+
+.nav-item:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+}
+
+.nav-item.active {
+    color: var(--primary);
+    background: var(--sidebar-active-bg);
+}
+
+/* MAIN CONTENT */
+.content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    position: relative;
+    background: var(--bg);
+}
